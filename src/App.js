@@ -74,7 +74,6 @@ const originalDeskItemData = [
 
 function App() {
   const [deskItemsData, setDeskItemsData] = useState(originalDeskItemData)
-  const [assembledItems, setAssembledItems] = useState([])
 
   function toggleItemSelection (id) {
     console.log("trigered selection");
@@ -100,7 +99,7 @@ function App() {
     <>
       <Router>
         <Header />
-        <div className="container w-75 p-sm-5 py-2">
+        <div className="container w-auto p-sm-5 py-2">
           <Routes>
             <Route
               exact

@@ -1,13 +1,17 @@
-import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import CardWrapper from "./wrapper/CardWrapper";
 
 function FinishPage({ deskItemsData}) {
   const navigate = useNavigate();
-  const imageWrapper = {
-    position: "relative",
-    top: 0,
-    left: 0,
-  };
+  const [isAssembledItemsEmpty, setIsAssembledItemsEmpty] = useState(false)
+
+  useEffect(() => {
+    const assembledItems = deskItemsData.filter(item => item.isAssembled)
+    if (Object.keys(assembledItems).length === 0)
+      setIsAssembledItemsEmpty(true);
+  },[])
+
   const baseimage = {
     position: "relative",
     top: 0,
@@ -25,8 +29,10 @@ function FinishPage({ deskItemsData}) {
   }
 
   return (
-    <div className="container shadow p-sm-5 p-2 ">
-      <h1 className=" display-5 mb-5">Voila! Desk is Setup</h1>
+    <CardWrapper
+      title={isAssembledItemsEmpty ? "Oops! your desk is Empty" : "Voila! your desk is Setup"}
+      cardMaxWidth="700px"
+    >
       <div className="card">
         <img
           src="images/empty-desk.jpg"
@@ -51,7 +57,10 @@ function FinishPage({ deskItemsData}) {
       </div>
 
       <p className="fs-5 mt-3">
-        Things in your desk :{" "}
+        Things on your desk :
+        {isAssembledItemsEmpty && (
+          <span className="badge bg-primary mx-2">None</span>
+        )}
         {deskItemsData.map((deskItem) => (
           <>
             {deskItem.isAssembled && (
@@ -61,17 +70,16 @@ function FinishPage({ deskItemsData}) {
         ))}
       </p>
 
-        <div className="d-grid gap-2 mt-5">
-            <button
-            className="btn btn-primary"
-            type="button"
-            onClick={refreshHandler}
-            >
-            Try Again
-            </button>
-        </div>
-
-    </div>
+      <div className="d-grid gap-2 mt-5">
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={refreshHandler}
+        >
+          Try Again
+        </button>
+      </div>
+    </CardWrapper>
   );
 }
 

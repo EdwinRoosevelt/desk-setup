@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { useEffect } from 'react';
+import { DragDropContext } from "react-beautiful-dnd";
+
 import DragDropContainer from './DragDropContainer';
+import CardWrapper from "./wrapper/CardWrapper";
 
 function AssemblePage({ deskItemsData, handleItemAssembly }) {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -60,8 +61,8 @@ function AssemblePage({ deskItemsData, handleItemAssembly }) {
   }
 
   return (
-    <div className="container shadow p-sm-5 p-2">
-      <h1 className=" display-5 mb-5">Assemble Items for the desk</h1>
+    <CardWrapper title="Assemble Items for the desk">
+      <h1 className=" display-5 mb-5"></h1>
       <DragDropContext onDragEnd={dragEndHandler}>
         <div className="row">
           <DragDropContainer
@@ -84,7 +85,7 @@ function AssemblePage({ deskItemsData, handleItemAssembly }) {
           </button>
         </div>
       </Link>
-    </div>
+    </CardWrapper>
   );
 }
 

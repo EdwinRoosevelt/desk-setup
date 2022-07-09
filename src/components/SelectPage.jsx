@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-
+import CardWrapper from "./wrapper/CardWrapper";
 
 
 function SelectPage({ deskItemsData, handleItemSelection }) {
@@ -13,8 +13,7 @@ function SelectPage({ deskItemsData, handleItemSelection }) {
   };
 
   return (
-    <div className="container shadow p-sm-5 p-2 ">
-      <h1 className=" display-5 mb-5">Choose Items for the desk</h1>
+    <CardWrapper title="Choose Items for the desk">
       <div
         className="row flex-nowrap gap-3 p-3"
         style={{ overflowX: "scroll" }}
@@ -85,7 +84,7 @@ function SelectPage({ deskItemsData, handleItemSelection }) {
           </button>
         </div>
       </Link>
-    </div>
+    </CardWrapper>
   );
 }
 
