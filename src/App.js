@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import SelectPage from "./components/SelectPage"
 import Header from "./components/Header";
 import FinishPage from "./components/FinishPage";
+import Footer from "./components/Footer";
 
 const originalDeskItemData = [
   {
@@ -128,6 +129,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <Footer/>
     </>
 
     // <div>Hi</div>
