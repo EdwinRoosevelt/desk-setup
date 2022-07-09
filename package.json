@@ -1,7 +1,7 @@
 {
   "name": "desk-setup",
   "version": "0.1.0",
-  "homepage": "https://edwinroosevelt.github.io/desk-setup",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@mantine/core": "^4.2.12",
