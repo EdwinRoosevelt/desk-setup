@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { DragDropContext } from "react-beautiful-dnd";
 
 import DragDropContainer from './DragDropContainer';
 import CardWrapper from "./wrapper/CardWrapper";
 
 function AssemblePage({ deskItemsData, handleItemAssembly }) {
+  const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
   const [assembledItems, setAssembledItmes] = useState([]);
 
@@ -78,13 +79,15 @@ function AssemblePage({ deskItemsData, handleItemAssembly }) {
         </div>
       </DragDropContext>
 
-      <Link to="/finish">
         <div className="d-grid gap-2 mt-5">
-          <button className="btn btn-primary" type="button">
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={() => navigate("/finish")}
+          >
             Finish
           </button>
         </div>
-      </Link>
     </CardWrapper>
   );
 }

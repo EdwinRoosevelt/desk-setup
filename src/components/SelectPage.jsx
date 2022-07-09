@@ -1,16 +1,17 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CardWrapper from "./wrapper/CardWrapper";
 
+const unselectedCard = {
+  width: "300px",
+};
+const selectedCard = {
+  width: "300px",
+  border: "3px solid rgb(94, 203, 223)",
+};
 
 function SelectPage({ deskItemsData, handleItemSelection }) {
-  const unselectedCard = {
-    width: "300px"
-  }
-  const selectedCard = {
-    width: "300px",
-    border: "3px solid rgb(94, 203, 223)",
-  };
+  const navigate = useNavigate();
 
   return (
     <CardWrapper title="Choose Items for the desk">
@@ -77,13 +78,15 @@ function SelectPage({ deskItemsData, handleItemSelection }) {
         ))}
       </div>
 
-      <Link to="/assemble">
         <div className="d-grid gap-2 mt-5">
-          <button className="btn btn-primary" type="button">
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={() => navigate("/assemble")}
+          >
             Continue
           </button>
         </div>
-      </Link>
     </CardWrapper>
   );
 }
