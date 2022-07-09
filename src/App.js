@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import AssemblePage from "./components/AssemblePage";
@@ -75,6 +75,9 @@ const originalDeskItemData = [
 
 function App() {
   const [deskItemsData, setDeskItemsData] = useState(originalDeskItemData)
+  useEffect(() => {
+    document.title = "Desk setup - mini project"
+  })
 
   function toggleItemSelection (id) {
     console.log("trigered selection");
