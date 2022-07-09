@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
 import AssemblePage from "./components/AssemblePage";
 import HomePage from "./components/HomePage";
 import SelectPage from "./components/SelectPage"
@@ -97,15 +96,12 @@ function App() {
     setDeskItemsData(newDeskItemData);
   }
 
-  
-
   return (
     <>
       <Router>
         <Header />
         <div className="container w-75 p-sm-5 py-2">
           <Routes>
-            <Route exact path="/" element={<HomePage />} />
             <Route
               exact
               path="/select"
@@ -117,7 +113,6 @@ function App() {
               }
             />
             <Route
-              exact
               path="/assemble"
               element={
                 <AssemblePage
@@ -127,14 +122,10 @@ function App() {
               }
             />
             <Route
-              exact
               path="/finish"
-              element={
-                <FinishPage
-                  deskItemsData={deskItemsData}
-                />
-              }
+              element={<FinishPage deskItemsData={deskItemsData} />}
             />
+            <Route exact path="/" element={<HomePage />} />
           </Routes>
         </div>
       </Router>

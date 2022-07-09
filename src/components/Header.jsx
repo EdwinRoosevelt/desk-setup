@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Stepper } from "@mantine/core";
 
 function Header() {
   const location = useLocation()
-  const navigate = useNavigate();
   const [step, setStep] = useState(0);
 
   useEffect(() => {
