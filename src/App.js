@@ -76,7 +76,7 @@ const originalDeskItemData = [
 function App() {
   const [deskItemsData, setDeskItemsData] = useState(originalDeskItemData)
   useEffect(() => {
-    document.title = "Desk setup - mini project"
+    document.title = "Desk setup"
   })
 
   function toggleItemSelection (id) {
